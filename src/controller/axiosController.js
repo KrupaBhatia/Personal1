@@ -4,9 +4,12 @@ let axios = require("axios")
 let getmovies = async function (req, res) {
 
     try {
+        let title= req.query.t  
+        let id = req.query.apikey 
+        console.log(`query params are: ${title} ${id}`)
         let options = {
             method: 'get',
-            url: 'http://www.omdbapi.com/?apikey= 2b9ee31e'
+            url: `http://www.omdbapi.com/?t=${title}&apikey=2b9ee31e`
         }
         let result = await axios(options);
         console.log(result)
