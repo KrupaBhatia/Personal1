@@ -8,7 +8,8 @@ const axiosController = require('../controller/axiosController');
 
 router.post('/user',userController.users)
 router.get('/userLogin',userController.userLogin)
-router.get('/getmovies',axiosController.getmovies)
+router.get('/getmoviesById',axiosController.getmoviesById)
+router.get('/getmoviesByTitle',axiosController.getmoviesByTitle)
 
 
 module.exports = router;
