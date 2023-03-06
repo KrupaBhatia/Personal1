@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    box-sizing: 0;
+ 
+}
+body{
+    min-height: 100vh;
+    background-color: rgb(247, 247, 247);
+    
+}
+
+.Apply-container{
+    color: rgb(255, 255, 255);
+    width: 85%;
+    padding: 2px;
+    background: rgba(46, 46, 46, 0.753);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.608);
+    position: relative;
+    left: 110px;
+    top: 15px;    
+   
+    
+}
+
+
+#Apply-For-Visa{
+     font-family:'Times New Roman', Times, serif;
+     background-color: rgba(236, 47, 47, 0.708);
+     letter-spacing: 1px;
+     
+}
+.radion-button{
+    
+ color: rgb(0, 0, 0);
+ display: flex;
+ justify-content: center;
+ 
+}
+#select-div-application-type{
+    width: 350px;
+}
+#select-div-nationality{
+    width: 120px;
+}
+#port-of-arrival-div{
+    width: 150px;
+    height: 20px;
+}
+#submit-button:hover{ 
+  cursor: pointer;
+  background-color: rgb(79, 79, 255);
+  color: white;
+  
+}
+#submit-button {
+font-family: sans-serif;
+    font-size: medium;
+   
+    border-radius: 7px;
+    padding: 5px 20px; 
+    font-size: 15px;
+    
+}
+#all-error{
+    color: rgb(255, 12, 12);
+
+}
+.background-image-animation{
+    height: 100vh;
+   width: 100%;
+   background-image: url(../../../public/images/img1.jpg);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   overflow: hidden;
+   transition: 30s;
+
+   animation-name: animate;
+   animation-direction: alternate-reverse;
+   animation-duration: 40s;
+   animation-fill-mode: forwards;
+   animation-iteration-count: infinite;
+   animation-play-state: running;
+   animation-timing-function: ease-in-out;
+
+}
+@keyframes animate{
+    0%  {
+        background-image: url(../../../public/images/img2.jpg);
+    }20% {
+        background-image: url(../../../public/images/img3.jpg);
+    }
+     40% {
+        background-image: url(../../../public/images/img4.jpg);
+    }60% {
+        background-image: url(../../../public/images/img5.jpg);
+    }80% {
+        background-image: url(../../../public/images/img6.jpg);
+    }100% {
+        background-image: url(../../../public/images/img7.jpg);
+    } 
+}

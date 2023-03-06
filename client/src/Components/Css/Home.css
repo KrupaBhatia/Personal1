@@ -1,0 +1,108 @@
+* {
+    /* margin: 0;
+    padding: 0;
+    box-sizing: border-box; */
+}
+
+body {
+    /* margin: 2%;
+    justify-content: center;
+    overflow: hidden; */
+}
+.background-image-animation{
+
+   height: 100vh;
+   width: 100%;
+   background-image: url(../../../public/images/img1.jpg);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   overflow: hidden;
+   transition: 30s;
+
+   animation-name: animate;
+   animation-direction: alternate-reverse;
+   animation-duration: 40s;
+   animation-fill-mode: forwards;
+   animation-iteration-count: infinite;
+   animation-play-state: running;
+   animation-timing-function: ease-in-out;
+
+}
+@keyframes animate{
+    0%  {
+        background-image: url(../../../public/images/img2.jpg);
+    }20% {
+        background-image: url(../../../public/images/img3.jpg);
+    }
+     40% {
+        background-image: url(../../../public/images/img4.jpg);
+    }60% {
+        background-image: url(../../../public/images/img5.jpg);
+    }80% {
+        background-image: url(../../../public/images/img6.jpg);
+    }100% {
+        background-image: url(../../../public/images/img7.jpg);
+    } 
+}
+.box-wrapper1 {
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.box-wrapper2 {
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#card-box {
+    
+    border: solid 1px rgb(255, 255, 255);
+    border-radius: 10px;
+    background-color: rgba(46, 46, 46, 0.625);
+    box-shadow: 1px 5px 16px rgb(0, 0, 0);
+    color: white;
+    width: 225px;
+    height: 225px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 18px;
+    font-family: sans-serif;
+
+} 
+
+#card-box:hover{
+    background-color: rgba(255, 255, 255, 0.407);
+    transform: scale(1.1);
+    transition: transform .1s;
+    color: rgb(0, 0, 0);
+}
+
+#box-id{
+
+  padding: 5px 8px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  background-color: rgb(207, 207, 207);
+  outline: none;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 10px; 
+}
+
+#box-id:hover{
+    
+    background-color: rgba(255, 255, 255, 0.762);
+    transform: scale(1.1);
+    transition: transform .1s;  
+}
+
+.text{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: larger;
+}
