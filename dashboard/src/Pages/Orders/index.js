@@ -107,26 +107,7 @@ function Orders() {
           {
             title: "payment",
             dataIndex: "payment",
-          },
-
-          {
-            title: "Actions",
-            render: (_, record) => {
-              return (
-                <>
-                  <Link to='/update/${_id}'>
-
-                    <Button onClick={getById()} >
-                      Editssssss
-                    </Button>
-                  </Link>
-                  <Button type="link" htmlType="submit"  >
-                    Save
-                  </Button>
-                </>
-              );
-            },
-          },
+          }
         ]
         }
       dataSource={dataSource}
