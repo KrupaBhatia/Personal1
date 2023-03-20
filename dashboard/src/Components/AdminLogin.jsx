@@ -1,87 +1,73 @@
 import React from "react";
 // import { Link } from 'react-router-dom'
 import { useState } from "react";
+import axios from "axios";
+
 
 const AdminLogin = () => {
-    
-    const [login, setLogin] = useState({
-         email: "", password: ""
-      });
-      let name, value;
-      const handleInput = (e) => {
-        console.log(e)
-        name = e.target.name
-        value = e.target.value
+  const [email, setEmail] = useState("Faizan@gmail.com");
 
-        setLogin({ ...login, [name]: value })
-       
-      }
-      const postData = async (e) => {
-        e.preventDefault()
-    
-        const { email, password } = login
-    
-        const res = await fetch("/AdminLogin", {
-          method: "POST",
-          headers: {
-    
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-          email, password
-          })
-        });
-    
-        const data = await res.json()
-    
-        if (data.status === 400 || !data) {
-          window.alert("Invalid Registration")
-          console.log("invalid registration")
-        } else {
-          window.alert("Registration successfull")
-          console.log("successfull registration")
+  const [password, setPassword] = useState("pass@123");
+
+  async function loginUser(event) {
+    event.preventDefault();
+
+    axios
+      .post(
+        "http://localhost:4000/login",
+
+        {
+          email: email,
+          password: password,
         }
-      }
-      return (
-    
-        <div className="admin_login-container">
-          <div className="login-container">
-          <h1 id="admin-login-text"> Admin Login </h1>
-            <form method="POST">
-              
-        <div>
-        <label>
-          Enter Email  &nbsp; &nbsp; &nbsp; : &nbsp;
-          <input
-            type="email"
-            name="email"
-            value={login.email}
-            onChange={handleInput}
-            placeholder="email" />
-        </label>
-        </div>
-        <br/>
-        <div>
-        <label>
-          Enter Password  :&nbsp;
-          <input
-            type="password"
-            name="password"
-            value={login.password}
-            onChange={handleInput}
-            placeholder="password" />
-        </label>
-        </div>
-        <br />
-
-              <input type="submit" name="submit-form" id="submit-button" className="form-submit"
-                value="Login" onClick={postData} />
-    
-            </form>
-          </div>
-        </div>
       )
+      .then(async (result) => {
+        localStorage.setItem("token", result.data.data.Token);
+        console.log(result.data.data.Token);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
-}
+  return (
+    <> 
+       <div className="admin_login-container">
+          <div className="login-container">
+      <h2>Login to your Account</h2>
+      <form method="POST" onSubmit={loginUser}>
+        <label htmlFor="username" className="input-text" required>
+          Username or Email
+        </label>
+        <br />
+        <input
+          type="email"
+          className="input"
+          value={email}
+          required
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <br />
+        <label htmlFor="password" required className="input-text">
+          Your Password
+        </label>
+        <br />
+        <input
+          type="password"
+          className="input"
+          value={password}
+          required
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <br />
+        <button type="submit" className="btn">
+          Log in
+        </button>
+      </form>
+      </div>
+      </div>
+      </>
+  );
+};
 
-export default AdminLogin
+export default AdminLogin;
