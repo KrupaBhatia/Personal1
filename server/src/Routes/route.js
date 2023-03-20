@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router();
 
 const { applyForm, getStatus } = require('../Controllers/formController')
-const {adminLogin} = require('../Controllers/adminController')
+const admin = require('../Controllers/adminController')
 
 // Form Apply 
 router.post('/ApplyForm', applyForm)
@@ -11,15 +11,13 @@ router.post('/ApplyForm', applyForm)
 router.get('/status/:unique_id', getStatus)
 
 // Admin Login
-// router.post('/adminLogin', adminLogin)
+router.post('/adminLogin', admin.adminLogin)
+router.post('/login',admin.login)
+router.get('/getData', admin.getData)
+router.get("/getstatus" , admin.getstatusByQuery)
+router.put("/update/:id" , admin.updateCompleted)
+router.get("/getById/:id" , admin.getById)
 
 
-//API for wrong route-Of-API
-router.all("/**", function (req, res) {
-    res.status(404).send({
-        status: false,
-        message: "The api you request is not available"
-    })
-})
 
 module.exports = router; 
