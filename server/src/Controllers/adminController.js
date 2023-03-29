@@ -77,6 +77,35 @@ const adminLogin = async function (req, res) {
      console.log(error);
    }
  };
+
+ 
+// let tokenAccess = async function (req, res) {
+//   let token = req.headers.authorization.split(" ")[1];
+
+//   const decodedToken = jwt.decode(token);
+
+//   const currentTime = new Date().setHours(8);
+
+
+
+//   if (decodedToken?.exp < currentTime) {
+  
+//     let date1 = new Date().getTime() + 60 * 60 * 24 * 1000;
+//     let token = jwt.sign(
+//       {
+//         userId: decodedToken?.userId.toString(),
+//         iat: date1,
+//         exp: date1,
+//       },
+//       "evisa" //secrete Key
+//     );
+
+//     return res.send({ status: true, message: "success", token: token });
+//   } else {
+//     res.send({ status: true, message: "success" });
+//   }
+// };
+// module.exports.tokenAccess = tokenAccess;
  
 
 const getData = async function(req,res){

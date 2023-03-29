@@ -4,6 +4,10 @@ import {  getOrders } from "../../API";
 import { Link, useParams } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
 import axios from "axios";
+import AppHeader from "../../Components/AppHeader"
+import SideMenu from "../../Components/SideMenu";
+import AppFooter from "../../Components/AppFooter";
+
 
 function Orders() {
   const { _id } = useParams()
@@ -59,6 +63,13 @@ function Orders() {
 
 
   return (
+    <>
+    <AppHeader />
+    <div className="SideMenuAndPageContent">
+          <SideMenu></SideMenu>
+         
+        </div> 
+        <div className="content">
     <Space size={20} direction="vertical">
       <Typography.Title level={4}>Orders</Typography.Title>
       <Form form={form} ></Form>
@@ -119,6 +130,9 @@ function Orders() {
       <Toaster />
 
     </Space>
+    </div>
+    <AppFooter /> 
+    </>
   );
 }
 export default Orders;

@@ -1,10 +1,19 @@
 import React from "react";
 // import { Link } from 'react-router-dom'
 import { useState } from "react";
-import axios from "axios";
+import axios from "axios"; 
+import { useNavigate } from "react-router-dom";
+
+
+
+
+
 
 
 const AdminLogin = () => {
+
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("Faizan@gmail.com");
 
   const [password, setPassword] = useState("pass@123");
@@ -23,7 +32,7 @@ const AdminLogin = () => {
       )
       .then(async (result) => {
         localStorage.setItem("token", result.data.data.Token);
-        console.log(result.data.data.Token);
+        navigate("/customers")
       })
       .catch((err) => {
         console.log(err);
@@ -32,6 +41,7 @@ const AdminLogin = () => {
 
   return (
     <> 
+    
        <div className="admin_login-container">
           <div className="login-container">
       <h2>Login to your Account</h2>

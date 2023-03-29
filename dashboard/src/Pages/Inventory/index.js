@@ -1,6 +1,9 @@
 import { Avatar, Rate, Space, Table, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { getInventory } from "../../API";
+import AppHeader from "../../Components/AppHeader"
+import SideMenu from "../../Components/SideMenu";
+import AppFooter from "../../Components/AppFooter";
 
 function Inventory() {
   const [loading, setLoading] = useState(false);
@@ -15,6 +18,13 @@ function Inventory() {
   }, []);
 
   return (
+    <>
+    <AppHeader />
+    <div className="SideMenuAndPageContent">
+          <SideMenu></SideMenu>
+         
+        </div> 
+    <div className="content">
     <Space size={20} direction="vertical">
       <Typography.Title level={4}>Inventory</Typography.Title>
       <Table
@@ -43,6 +53,9 @@ function Inventory() {
         }}
       ></Table>
     </Space>
+    </div>
+    <AppFooter /> 
+    </>
   );
 }
 export default Inventory;
